@@ -1,4 +1,4 @@
-#!/usr/bin/node env
+#!/usr/bin/env node
 
 /* 
 Write a script that prints 3 lines:
