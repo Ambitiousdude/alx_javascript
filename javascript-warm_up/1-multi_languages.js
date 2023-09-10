@@ -10,9 +10,9 @@ Write a script that prints 3 lines:
 5. You are not allowed to use var
 */
 
-let first_line = "C is fun"
-let second_line = "Python is cool"
-let third_line = "Javascript is amazing"
+let first_line = "C is fun";
+let second_line = "Python is cool";
+let third_line = "Javascript is amazing";
 
 console.log(first_line);
 console.log(second_line);
