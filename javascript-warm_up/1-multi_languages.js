@@ -10,10 +10,10 @@ Write a script that prints 3 lines:
 5. You are not allowed to use var
 */
 
-let first_line = "C is fun";
-let second_line = "Python is cool";
-let third_line = "Javascript is amazing";
+let firstline = 'C is fun';
+let secondline = 'Python is cool';
+let thirdline = 'JavaScript is amazing';
 
-console.log(first_line);
-console.log(second_line);
-console.log(third_line);
+console.log(firstline);
+console.log(secondline);
+console.log(thirdline);
