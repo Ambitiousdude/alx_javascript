@@ -4,7 +4,6 @@
 -Update this script by adding a new function incr that increments the integer value.
 
 1. You are not allowed to use var
-
 */
 
 const myObject = {
