@@ -10,11 +10,15 @@
 - If w or h is equal to 0 or not a positive integer, create an empty object
 */
 
-module.exports = class Rectangle{
-    constructor(w, h){
-        if(w > 0 && h > 0){
+// Rectangle class
+module.exports = class Rectangle {
+    // Constructor
+    constructor(w, h) {
+        // Check if width and height are positive
+        if (w > 0 && h > 0) {
+            // If so, assign them to the instance variables
             this.width = w;
             this.height = h;
         }
-        }
-    };
+    }
+}
