@@ -11,7 +11,7 @@ module.exports = class Square extends require('./4-rectangle.js') {
     // Constructor for a square.
     constructor(size) {
         // Call the constructor of the superclass with the same size for both width and height.
-        super(w, h, size);
+        super(size, size);
         this.size = size;
     }
 }
