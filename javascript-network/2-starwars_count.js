@@ -14,20 +14,18 @@ const url = process.argv[2];
 const id = '18';
 let num = 0;
 
-javascript
-// Define the function with error, response, and body parameters
-const countFilmsWithCharacter = (error, response, body) => {
+request.get(url, (error, response, body) => {
     if (error) {
-        console.log(error); // Log the error if there is one
+        console.log(error);
     } else {
-        const data = JSON.parse(body); // Parse the body into a JSON object
-        data.results.forEach((film) => { // Loop through each film in the results array
-            film.characters.forEach((character) => { // Loop through each character in the film's characters array
-                if (character.includes(id)) { // Check if the character's id is included in the character's id array
-                    num++; // Increment the count if the condition is met
+        const data = JSON.parse(body);
+        data.results.forEach((film) => {
+            film.characters.forEach((character) => {
+                if (character.includes(id)) {
+                    num++;
                 }
             });
         });
-        console.log(num); // Log the final count of films with the specified character
+        console.log(num);
     }
-}
+});
