@@ -30,7 +30,7 @@ function createClassRoom(numberOfStudents) {
         return function() {
             return seat;
         };
-    }S
+    }
 
     let students = [];
 
