@@ -13,11 +13,11 @@
 3. Call the function outer
 Compose the code:
 
-Write the function inception within inner
-Write the function inner within outer
-Call the function outer in the main code (outside any function)
-Call the function inner within outer
-Call the function inception within inner
+- Write the function inception within inner
+- Write the function inner within outer
+- Call the function outer in the main code (outside any function)
+- Call the function inner within outer
+- Call the function inception within inner
 Requirements:
 
 Running the script should display three popups one by one with the 
