@@ -18,11 +18,11 @@ Compose the code:
 - Call the function outer in the main code (outside any function)
 - Call the function inner within outer
 - Call the function inception within inner
-Requirements:
 
-Running the script should display three popups one by one with the 
-text Welcome, Welcome Holberton, and Welcome Holberton!
+-- Requirements:
 
+- Running the script should display three popups one by one with the 
+- text Welcome, Welcome Holberton, and Welcome Holberton!
 */
 
 const globalVariable = 'Welcome';
