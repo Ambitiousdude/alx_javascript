@@ -3,47 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies local storage</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Login to the website</h1>
-    <label for="firstname">Firstname</label>
-    <input type="text" id="firstname">
-    <label for="email">Email</label>
-    <input type="text" id="email">
-    <button id="setCookies">Log me in</button>
-    <h1>Cookies</h1>
-    <button id="showCookies">Show the cookies</button>
+    <div>
+        <h1>Login to the website</h1>
+        <div>
+            <input type="text" id="firstname" value="Firstname">
+            <input type="email" value="Email" id="email">
+            <button onclick="setCookies()">Log me in</button>
+        </div>
+    </div>
+
+    <div>
+        <h1>Cookies</h1>
+        <button onclick="showCookies()"> Show the cookies</button>
+    </div>
+    
+
 
     <script>
-        import Cookies from 'js-cookie';
-
         function setCookies() {
-            let firstnameInput = document.getElementById('firstname');
-            let emailInput = document.getElementById('email');
+            //defines values in input
+            const firstnameValue = document.getElementById('firstname').value;
+            const emailValue = document.getElementById('email').value;
 
-            const firstnamevalue = firstnameInput.value;
-            const emailvalue = emailInput.value;
-
+            // set cookies
             document.cookie = `firstname=${firstnameValue}`;
             document.cookie = `email=${emailValue}`;
-
-            firstnameInput.value = '';
-            emailInput.value = '';
         }
+
         function showCookies() {
-            const cookiesArray = document.cookie.split(';');
+            // splits the cookies after the semicolon and stores that in cookies as an array
+            const cookies = document.cookie.split('; ')
+            // create DOM element p
+            const cookieParagraph = document.createElement("p");
+            
+            // defines variable cookieText with initial words cookies
+            let cookieText = "Cookies: ";
 
-            const par = document.createElement('p');
-
-            let cookieT = 'Cookies: ';
-
-            for (const cookie of cookieArray) {
-                const [name, value] = cookie.trim().split('=');
-                cookieT += `${name}=${value};`;
+            // loops through each cookie in the cookies split
+            for (const cookie of cookies) {
+                // split each cookie to create an array with 2 elements
+                const [cookieName, cookieValue] = cookie.split('=');
+                // builds text string
+                cookieText += `${cookieName}=${cookieValue}; `;
+                
             }
-            paragraph.innerHTML = cookieT;
-            document.body.appendchild(paragraph);
+            // adds the cookie text as text in the p tag
+            cookieParagraph.innerText = cookieText;
+
+            // add the paragraph at the bottom of body
+            document.body.appendChild(cookieParagraph);
         }
     </script>
 </body>
