@@ -30,50 +30,50 @@ Harry: 4
 Draco: -2
 */
 
-function studentHogwarts(privateScore, name) {
+function studentHogwarts() {
     let privateScore = 0;
     let name = null;
 
-    const changeScoreBy = function (points) {
-        return privateScore += points;
-    };
+    //private method
+    function changeScoreBy(points) {
+        privateScore += points;
+    }
 
-    const setName = function (newName) {
-        name = newName;
-    };
-
-    const rewardStudent = function () {
-        changeScoreBy(1);
-    };
-
-    const penalizeStudent = function () {
-        changeScoreBy(-1);
-    };
-
-    const getScore = function () {
-        return `${name}: ${privateScore}`;
-    };
-
+    // public methods
     return {
-        setName,
-        rewardStudent,
-        penalizeStudent,
-        getScore,
+       setName: function (newName) {
+           name = newName;
+       },
+        rewardStudent: function () {
+            changeScoreBy(1);
+        },
+        penalizeStudent: function () {
+           changeScoreBy(-1);
+        },
+        getScore: function () {
+           return `${name}: ${privateScore}` ;
+        }
     };
-};
-
+}
+// Harry,instance of Hogwarts
 const harry = studentHogwarts();
-harry.setName('Harry');
+harry.setName("Harry");
 harry.rewardStudent();
 harry.rewardStudent();
 harry.rewardStudent();
 harry.rewardStudent();
+harry.getScore();
+// Log the name and score for Harry
 console.log(harry.getScore());
 
+// Draco
 const draco = studentHogwarts();
 draco.setName("Draco");
 draco.rewardStudent();
 draco.penalizeStudent();
 draco.penalizeStudent();
 draco.penalizeStudent();
+draco.getScore();
+
+// Log the name and score for Draco
 console.log(draco.getScore());
