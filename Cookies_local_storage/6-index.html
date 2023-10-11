@@ -3,45 +3,48 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=
-  , initial-scale=1.0">
-  <title>Cookies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
 </head>
 
 <body>
-  <main>
-    <h1>Login in to the Website</h1>
-    <form>
-      <input type="text" id="firstname" placeholder="Firstname">
-      <input type="text" id="email" placeholder="Email">
-      <button type="button" onclick="setCookies()">Log me in</button>
-    </form>
-
-    <h2>Cookies</h2>
-    <button type="button" onclick="showCookies()">Show the cookies</button>
-
-
-  </main>
   <script>
-    function setCookies() {
-      const firstname = document.getElementById('fisrtname');
-      const email = document.getElementById('email');
-      const nameValue = firstname.value;
-      const emailValue = email.value;
+    const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
 
-      document.cookie = `firstname = ${nameValue}`;
-      document.cookie = `email = ${emailValue}`;
-
-      alert("Cookies set Successfully");
-
+    function addItemToCart(item) {
+      sessionStorage.setItem(item, true);
+      displayCart();
     }
 
-    function showCookies() {
-      const cookie = document.cookie;
-      const cookiesElement = document.getElementById('cookiesValue');
-      cookies.Element.innerHTML = `cookies: ${cookies}`;
+    function createStore() {
+      const ul = document.createElement('ul');
+      document.body.appendChild(ul);
 
+      availableItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.addEventListener('click', () => addItemToCart(item));
+        ul.appendChild(li);
+      });
     }
+
+    function displayCart() {
+      const cartItems = Object.keys(sessionStorage);
+      if (cartItems.length === 0) return;
+
+      const cartMessage = `You previously had ${cartItems.length} item${cartItems.length > 1 ? 's' : ''} in your cart.`;
+      const p = document.createElement('p');
+      p.textContent = cartMessage;
+      document.body.appendChild(p);
+    }
+
+    createStore();
+    displayCart();
   </script>
 </body>
 
